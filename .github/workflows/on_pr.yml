@@ -10,7 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Xcode Build and Save resultBundle
-      run: xcodebuild -resultBundlePath ResultBundle
+      run: |
+        xcodebuild build
+          -scheme "App"
+          -destination platform="iOS Simulator,name=iPhone 12 Pro,OS=15.0" 
+          -resultBundlePath ResultBundle
       working-directory: ./App
     - uses: actions/upload-artifact@v2
       with:
