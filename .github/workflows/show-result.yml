@@ -31,7 +31,7 @@ jobs:
             var fs = require('fs');
             fs.writeFileSync('${{github.workspace}}/resultBundle.zip', Buffer.from(download.data));
       - run: unzip resultBundle.zip
-      - run: unzip ResulutBundle.xcresult.zip
+      - run: unzip ResultBundle.xcresult.zip
       - uses: kishikawakatsumi/xcresulttool@v1.0.3
         with:
           path: ResultBundle.xcresult
