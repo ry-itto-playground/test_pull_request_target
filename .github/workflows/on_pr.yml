@@ -12,7 +12,7 @@ jobs:
     - name: Xcode Build and Save resultBundle
       run: |
         xcodebuild test
-          -project "App.xcodeproj"
+          -project App.xcodeproj
           -scheme "App (iOS)"
           -configuration "Debug"
           -destination platform="iOS Simulator,name=iPhone 12 Pro,OS=15.0" 
