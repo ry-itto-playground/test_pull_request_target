@@ -15,6 +15,7 @@ jobs:
     - name: Xcode Build and Save resultBundle
       run: |
         xcodebuild test
+          -sdk iphonesimulator
           -project App.xcodeproj
           -scheme "AppTests"
           -configuration "Debug"
