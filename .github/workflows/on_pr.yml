@@ -9,11 +9,17 @@ jobs:
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
+    - name: Show schemes
+      run: xcodebuild -project App.xcodeproj -list
+      working-directory: ./App
     - name: Xcode Build and Save resultBundle
-      run: xcodebuild -resultBundlePath ResultBundle
+      run: make test
+      working-directory: ./App
+    - name: Zip resultBundle
+      run: zip ResultBundle.xcresult.zip ResultBundle.xcresult
       working-directory: ./App
     - uses: actions/upload-artifact@v2
       with:
         name: resultBundle
-        path: App/ResultBundle/
+        path: App/ResultBundle.xcresult.zip
 
