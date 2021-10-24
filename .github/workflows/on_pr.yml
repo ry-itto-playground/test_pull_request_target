@@ -13,14 +13,7 @@ jobs:
       run: xcodebuild -project App.xcodeproj -list
       working-directory: ./App
     - name: Xcode Build and Save resultBundle
-      run: |
-        xcodebuild test
-          -sdk iphonesimulator
-          -project App.xcodeproj
-          -scheme "AppTests"
-          -configuration "Debug"
-          -destination platform="iOS Simulator,name=iPhone 12 Pro,OS=15.0" 
-          -resultBundlePath ResultBundle
+      run: make test
       working-directory: ./App
     - uses: actions/upload-artifact@v2
       with:
