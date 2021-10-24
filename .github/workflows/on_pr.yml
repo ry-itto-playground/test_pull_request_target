@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Xcode Build and Save resultBundle
       run: |
-        xcodebuild build
+        xcodebuild test
           -project "App.xcodeproj"
           -scheme "App (iOS)"
           -configuration "Debug"
