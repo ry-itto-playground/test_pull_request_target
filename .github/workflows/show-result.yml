@@ -30,6 +30,8 @@ jobs:
             });
             var fs = require('fs');
             fs.writeFileSync('${{github.workspace}}/resultBundle.zip', Buffer.from(download.data));
+      - run: echo ${{ github.event.workflow_run.workflow }}
+      - run: echo ${{ github.event.workflow_run.workflow_run }}
       - run: unzip resultBundle.zip
       - run: unzip ResultBundle.xcresult.zip
       - uses: kishikawakatsumi/xcresulttool@v1.0.3
