@@ -16,10 +16,12 @@ jobs:
       run: make test
       working-directory: ./App
     - name: Zip resultBundle
-      run: zip ResultBundle.xcresult.zip ResultBundle.xcresult
+      run: zip -r ResultBundle.xcresult.zip ResultBundle.xcresult
       working-directory: ./App
+      if: success() || failure()
     - uses: actions/upload-artifact@v2
       with:
         name: resultBundle
         path: App/ResultBundle.xcresult.zip
+      if: success() || failure()
 
